@@ -14,7 +14,7 @@ public class ValueImpl implements Value {
 
     @Override
     public Integer toInteger() {
-        return null;
+        return Integer.parseInt(this.value);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ValueImpl implements Value {
 
     @Override
     public Double toDouble() {
-        return null;
+        return Double.parseDouble(this.value);
     }
 
     @Override

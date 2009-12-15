@@ -4,6 +4,7 @@ import com.rsx.Element;
 import com.rsx.Value;
 import org.w3c.dom.NodeList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ElementImpl implements Element {
@@ -17,14 +18,20 @@ public class ElementImpl implements Element {
     @Override
     public Element element(String elementName) {
         NodeList elements = element.getElementsByTagName(elementName);
-        System.out.println(elements.getLength());
         org.w3c.dom.Element element = (org.w3c.dom.Element) elements.item(0);
         return new ElementImpl(element);
     }
 
     @Override
     public List<Element> elements(String elementName) {
-        return null;
+        List<Element> elements = new ArrayList<Element>();
+
+        NodeList nodes = element.getElementsByTagName(elementName);
+        for (int index = 0; index < nodes.getLength(); index++) {
+            elements.add(new ElementImpl((org.w3c.dom.Element) nodes.item(index)));
+        }
+
+        return elements;
     }
 
     @Override
@@ -34,6 +41,6 @@ public class ElementImpl implements Element {
 
     @Override
     public Value attribute(String attributeName) {
-        return null;
+        return new ValueImpl(element.getAttribute(attributeName));
     }
 }

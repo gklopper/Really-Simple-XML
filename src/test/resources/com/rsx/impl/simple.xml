@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <person>Peter</person>
+    <person age="22">Peter</person>
+    <jobs>
+        <job wage="12.3">Washer</job>
+        <job wage="10.3">Sweeper</job>
+    </jobs>
 </root>
