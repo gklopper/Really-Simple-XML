@@ -2,6 +2,7 @@ package com.rsx.impl;
 
 import com.rsx.Value;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -19,7 +20,7 @@ public class ValueImpl implements Value {
 
     @Override
     public Long toLong() {
-        return null;
+        return Long.parseLong(this.value);
     }
 
     @Override
@@ -29,7 +30,11 @@ public class ValueImpl implements Value {
 
     @Override
     public Date toDate(SimpleDateFormat format) {
-        return null;
+        try {
+            return format.parse(this.value);
+        } catch (ParseException e) {
+            throw new ReallySimpleXmlException("Unable to parse date: " + this.value, e);
+        }
     }
 
     @Override

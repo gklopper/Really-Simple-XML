@@ -2,7 +2,7 @@
 <root>
     <person age="22">Peter</person>
     <jobs>
-        <job wage="12.3">Washer</job>
+        <job wage="12.3" startDate="30/01/2009">Washer</job>
         <job wage="10.3">Sweeper</job>
     </jobs>
 </root>
