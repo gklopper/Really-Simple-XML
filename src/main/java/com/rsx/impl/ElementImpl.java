@@ -6,11 +6,11 @@ import org.w3c.dom.NodeList;
 
 import java.util.List;
 
-public class ElementJaxpImpl implements Element {
+public class ElementImpl implements Element {
 
     private org.w3c.dom.Element element;
 
-    public ElementJaxpImpl(org.w3c.dom.Element element) {
+    public ElementImpl(org.w3c.dom.Element element) {
     this.element = element;
     }
 
@@ -19,7 +19,7 @@ public class ElementJaxpImpl implements Element {
         NodeList elements = element.getElementsByTagName(elementName);
         System.out.println(elements.getLength());
         org.w3c.dom.Element element = (org.w3c.dom.Element) elements.item(0);
-        return new ElementJaxpImpl(element);
+        return new ElementImpl(element);
     }
 
     @Override

@@ -13,7 +13,7 @@ public class ReallySimpleXmlTest {
 
         InputStream xmlStream = getClass().getResourceAsStream("simple.xml");
 
-        Element root = new ReallySimpleXmlJaxpImpl().parse(xmlStream);
+        Element root = new ReallySimpleXmlImpl().parse(xmlStream);
 
         String name = root.element("person").value().toString();
         
