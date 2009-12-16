@@ -43,4 +43,14 @@ public class ReallySimpleXmlTest {
         Assert.assertEquals("Should have correct year", 2009, calendar.get(Calendar.YEAR));
     }
 
+    @Test
+    public void shouldReturnNullIfYouGettheNamesWrong() {
+        InputStream xmlStream = getClass().getResourceAsStream("simple.xml");
+
+        Element root = new ReallySimpleXmlImpl().parse(xmlStream);
+
+        Assert.assertNull(root.element("wrong_name"));
+        Assert.assertNull(root.element("person").attribute("wrong_name"));
+    }
+
 }

@@ -17,8 +17,13 @@ public class ElementImpl implements Element {
 
     @Override
     public Element element(String elementName) {
-        NodeList elements = element.getElementsByTagName(elementName);
+        NodeList elements = this.element.getElementsByTagName(elementName);
         org.w3c.dom.Element element = (org.w3c.dom.Element) elements.item(0);
+
+        if (element == null) {
+            return null;
+        }
+
         return new ElementImpl(element);
     }
 
@@ -41,6 +46,12 @@ public class ElementImpl implements Element {
 
     @Override
     public Value attribute(String attributeName) {
-        return new ValueImpl(element.getAttribute(attributeName));
+        String attribute = element.getAttribute(attributeName);
+
+        if (!element.hasAttribute(attributeName)) {
+            return null;
+        }
+
+        return new ValueImpl(attribute);
     }
 }
