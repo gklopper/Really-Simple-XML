@@ -2,6 +2,7 @@ package com.rsx.impl;
 
 import com.rsx.Element;
 import com.rsx.ReallySimpleXml;
+import com.rsx.ReallySimpleXmlException;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;

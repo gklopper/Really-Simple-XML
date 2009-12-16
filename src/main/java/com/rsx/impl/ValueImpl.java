@@ -1,5 +1,6 @@
 package com.rsx.impl;
 
+import com.rsx.ReallySimpleXmlException;
 import com.rsx.Value;
 
 import java.text.ParseException;
