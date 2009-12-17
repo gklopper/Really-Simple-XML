@@ -53,4 +53,11 @@ public class ReallySimpleXmlTest {
         Assert.assertNull(root.element("person").attribute("wrong_name"));
     }
 
+    @Test
+    public void shouldHandleNamespacedElements() {
+        InputStream xmlStream = getClass().getResourceAsStream("simple.xml");
+        Element root = new ReallySimpleXmlImpl().parse(xmlStream);
+        Assert.assertTrue(root.element("foo:alive").attribute("value").toBoolean());
+        Assert.assertEquals("Should have 2 family", 2, root.elements("foo:family").size());        
+    }
 }

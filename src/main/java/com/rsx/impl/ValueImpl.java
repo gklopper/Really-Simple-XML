@@ -39,6 +39,11 @@ public class ValueImpl implements Value {
     }
 
     @Override
+    public Boolean toBoolean() {
+        return Boolean.parseBoolean(value);
+    }
+
+    @Override
     public String toString() {
         return value;
     }

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<root>
+<root xmlns:foo="http://somewhere.com/mrss/">
     <person age="22">Peter</person>
+    <foo:alive value="true"/>
+    <foo:family/>
+    <foo:family/>
     <jobs>
         <job wage="12.3" startDate="30/01/2009">Washer</job>
         <job wage="10.3">Sweeper</job>

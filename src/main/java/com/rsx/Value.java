@@ -9,4 +9,5 @@ public interface Value {
     Long toLong();
     Double toDouble();
     Date toDate(SimpleDateFormat format);
+    Boolean toBoolean();
 }
