@@ -44,7 +44,7 @@ public class ReallySimpleXmlTest {
     }
 
     @Test
-    public void shouldReturnNullIfYouGettheNamesWrong() {
+    public void shouldReturnNullIfYouGetTheNamesWrong() {
         InputStream xmlStream = getClass().getResourceAsStream("simple.xml");
 
         Element root = new ReallySimpleXmlImpl().parse(xmlStream);
