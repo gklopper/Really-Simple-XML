@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class ReallySimpleXmlTest {
 
@@ -59,5 +60,20 @@ public class ReallySimpleXmlTest {
         Element root = new ReallySimpleXmlImpl().parse(xmlStream);
         Assert.assertTrue(root.element("foo:alive").attribute("value").toBoolean());
         Assert.assertEquals("Should have 2 family", 2, root.elements("foo:family").size());        
+    }
+
+    @Test
+    public void shouldLoadChildElements() {
+        InputStream xmlStream = getClass().getResourceAsStream("simple.xml");
+
+        Element root = new ReallySimpleXmlImpl().parse(xmlStream);
+        List<Element> elements = root.element("jobs").elements();
+
+        Element job1 = elements.get(0);
+        Assert.assertEquals("job", job1.name());
+        Assert.assertEquals("Washer", job1.value().toString());
+        Element job2 = elements.get(1);
+        Assert.assertEquals("job", job2.name());
+        Assert.assertEquals("Sweeper", job2.value().toString());
     }
 }

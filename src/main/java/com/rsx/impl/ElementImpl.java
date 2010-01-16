@@ -2,6 +2,7 @@ package com.rsx.impl;
 
 import com.rsx.Element;
 import com.rsx.Value;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
@@ -37,6 +38,26 @@ public class ElementImpl implements Element {
         }
 
         return elements;
+    }
+
+    @Override
+    public List<Element> elements() {
+        List<Element> elements = new ArrayList<Element>();
+
+        NodeList nodes = element.getChildNodes();
+        for (int index = 0; index < nodes.getLength(); index++) {
+            Node node = nodes.item(index);
+            if (node instanceof org.w3c.dom.Element) {
+                elements.add(new ElementImpl((org.w3c.dom.Element) node));
+            }
+        }
+
+        return elements;
+    }
+
+    @Override
+    public String name() {
+        return element.getNodeName();
     }
 
     @Override

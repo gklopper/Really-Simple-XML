@@ -4,7 +4,7 @@
     <foo:alive value="true"/>
     <foo:family/>
     <foo:family/>
-    <jobs>
+    <jobs foo="bar">
         <job wage="12.3" startDate="30/01/2009">Washer</job>
         <job wage="10.3">Sweeper</job>
     </jobs>
