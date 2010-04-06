@@ -34,7 +34,10 @@ public class ElementImpl implements Element {
 
         NodeList nodes = element.getElementsByTagName(elementName);
         for (int index = 0; index < nodes.getLength(); index++) {
-            elements.add(new ElementImpl((org.w3c.dom.Element) nodes.item(index)));
+            org.w3c.dom.Element node = (org.w3c.dom.Element) nodes.item(index);
+            if (this.element == node.getParentNode()) {
+                elements.add(new ElementImpl(node));
+            }
         }
 
         return elements;

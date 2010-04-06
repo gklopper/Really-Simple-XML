@@ -69,11 +69,26 @@ public class ReallySimpleXmlTest {
         Element root = new ReallySimpleXmlImpl().parse(xmlStream);
         List<Element> elements = root.element("jobs").elements();
 
+        Assert.assertEquals(3, elements.size());
+
         Element job1 = elements.get(0);
         Assert.assertEquals("job", job1.name());
         Assert.assertEquals("Washer", job1.value().toString());
         Element job2 = elements.get(1);
         Assert.assertEquals("job", job2.name());
         Assert.assertEquals("Sweeper", job2.value().toString());
+
+        Assert.assertEquals("crummy-jobs", elements.get(2).name());
+    }
+
+    @Test
+    public void shouldNotRecurseIntoChildElements() {
+        InputStream xmlStream = getClass().getResourceAsStream("simple.xml");
+        Element root = new ReallySimpleXmlImpl().parse(xmlStream);
+
+        List<Element> ages = root.elements("age");
+
+        Assert.assertEquals(1, ages.size());
+        Assert.assertEquals(ages.get(0).value().toInteger().intValue(), 30);
     }
 }
